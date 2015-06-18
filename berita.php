@@ -46,9 +46,10 @@
                         <p align='justify'>".substr($berita_isi,0, 250)."...</p>
                         <a href='beritaDetail.php?berita_id=".$berita_id."' class='btn btn-danger' style='width:20%'>Read More</a>
                         </div>";
+
                         if ($berita_file<>null) {
                         echo "
-                        <div class='col-md-12'>
+                        <div class='col-md-8'>
                         <a href='dokumen/".$berita_file."'>Download ".$berita_file."</a>
                         </div>
                         ";

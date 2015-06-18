@@ -25,20 +25,34 @@ session_start();
           $nomor_telepon = $_POST['nomor_telepon'];
           $alamat = $_POST['alamat'];
           
+          // $foto = $_FILES['foto']['name']; //nama file
+          // $fileSize = $_FILES['foto']['size']; //ukuran file
+          // $fileError = $_FILES['foto']['error']; //
+          // $uploaddir='./gambar/';
+          // $lokasi=$uploaddir.$foto;
+          // if($fileSize > 0 || $fileError == 0)
+          // { //Check jika error
+          //   $move = move_uploaded_file($_FILES['foto']['tmp_name'],$lokasi); //save gambar ke folder
+          // }
+
           $foto = $_FILES['foto']['name']; //nama file
           $fileSize = $_FILES['foto']['size']; //ukuran file
-          $fileError = $_FILES['foto']['error']; //
-          $uploaddir='./gambar/';
-          $lokasi=$uploaddir.$foto;
-          if($fileSize > 0 || $fileError == 0)
-          { //Check jika error
-            $move = move_uploaded_file($_FILES['foto']['tmp_name'],$lokasi); //save gambar ke folder
-          }
+          if ((($_FILES["foto"]["type"] == "image/gif")||($_FILES["foto"]["type"] == "image/jpeg")||
+              ($_FILES["foto"]["type"] == "image/pjpeg")))
+            {
+              $fileError = $_FILES['foto']['error']; //
+              $uploaddir='./gambar/';
+              $lokasi=$uploaddir.$foto;
+              if($fileSize > 0 || $fileError == 0)
+              { //Check jika error
+              $move = move_uploaded_file($_FILES['foto']['tmp_name'],$lokasi); //save gambar ke folder
+              }   
+            }
             if ($foto==null) 
             {
               $query = mysql_query("UPDATE `user` SET `password`='$password',`nama`='$nama',`email`='$email',`nomor_telepon`='$nomor_telepon',`alamat`='$alamat' WHERE username='$usernameUpdate'");
               if ($query) {
-                $sql_message = "Data Berhasil Diupdate..";
+                $sql_message = "Data Berhasil Diupdate.. Silahkan Reload Halaman untuk melihat perubahan data";
               }
             }
             else

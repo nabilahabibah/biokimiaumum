@@ -16,16 +16,58 @@ else
        $berita_isi = $_POST['berita_isi'];
        $berita_tanggal = date('Y-m-d');
        
-$foto = $_FILES['foto']['name']; //nama file
-          $fileSize = $_FILES['foto']['size']; //ukuran file
-          $fileError = $_FILES['foto']['error']; //
-          $uploaddir='./img/';
-          $lokasi=$uploaddir.$foto;
-          if($fileSize > 0 || $fileError == 0){ //Check jika error
-         $move = move_uploaded_file($_FILES['foto']['tmp_name'],$lokasi); //save gambar ke folder
-    }
+// $foto = $_FILES['foto']['name']; //nama file
+//           $fileSize = $_FILES['foto']['size']; //ukuran file
+//           $fileError = $_FILES['foto']['error']; //
+//           $uploaddir='./img/';
+//           $lokasi=$uploaddir.$foto;
+//           if($fileSize > 0 || $fileError == 0){ //Check jika error
+//          $move = move_uploaded_file($_FILES['foto']['tmp_name'],$lokasi); //save gambar ke folder
 
-      $simpan = mysql_query("INSERT INTO `berita` (berita_judul,berita_tanggal,berita_isi,foto,username) VALUES ('$berita_judul','$berita_tanggal','$berita_isi','$foto','$username')");
+          $foto = $_FILES['foto']['name']; //nama file
+          $fileSize = $_FILES['foto']['size']; //ukuran file
+          if ((($_FILES["foto"]["type"] == "image/gif")||($_FILES["foto"]["type"] == "image/jpeg")||
+              ($_FILES["foto"]["type"] == "image/pjpeg")))
+            {
+              $fileError = $_FILES['foto']['error']; //
+              $uploaddir='./img/';
+              $lokasi=$uploaddir.$foto;
+              if($fileSize > 0 || $fileError == 0)
+              { //Check jika error
+              $move = move_uploaded_file($_FILES['foto']['tmp_name'],$lokasi); //save gambar ke folder
+              }   
+            }
+
+            $file = $_FILES['file']['name']; //nama file
+            $fileSize = $_FILES['file']['size']; //ukuran file
+            if ((($_FILES["file"]["type"] == "image/gif")||($_FILES["file"]["type"] == "image/jpeg")||
+                ($_FILES["file"]["type"] == "image/pjpeg")))
+              {
+                $fileError = $_FILES['file']['error']; //
+                $uploaddir='./file/';
+                $lokasi=$uploaddir.$file;
+                if($fileSize > 0 || $fileError == 0)
+                { //Check jika error
+                $move = move_uploaded_file($_FILES['file']['tmp_name'],$lokasi); //save gambar ke folder
+                }   
+              }
+
+          // $file = $_FILES['file']['name']; //nama file    
+          //  $fileSize = $_FILES['file']['size']; //ukuran file 
+          //  if ((($_FILES["file"]["type"] == "application/zip")||($_FILES["file"]["type"] == "application/pdf")||
+          //     ($_FILES["file"]["type"] == "application/msword")))
+          //  {
+          //     $fileError = $_FILES['file']['error']; //
+          //     $uploaddir='./file/';
+          //     $lokasi=$uploaddir.$file;
+          //     if($fileSize > 0 || $fileError == 0)
+          //     { //Check jika error
+          //     $move = move_uploaded_file($_FILES['file']['tmp_name'],$lokasi); //save gambar ke folder
+          //     }
+          //  }
+       
+
+      $simpan = mysql_query("INSERT INTO `berita` (berita_judul,berita_tanggal,berita_isi,berita_file,foto,username) VALUES ('$berita_judul','$berita_tanggal','$berita_isi','$file','$foto','$username')");
       if(!$simpan) 
       {
         $sql_message = "Berita gagal ditambahkan !!";
@@ -81,6 +123,10 @@ $foto = $_FILES['foto']['name']; //nama file
                   <div class="form-group">
                     <label for="exampleInputFile">Foto Berita</label>
                     <input type="file" id="exampleInputFile" name="foto">  
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputFile">File Berita</label>
+                    <input type="file" id="exampleInputFile" name="file">  
                   </div>
                   <center>
                     <a href="beranda.php" class='btn btn-danger' style='width:15%' >Kembali</a>
