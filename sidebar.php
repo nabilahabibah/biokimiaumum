@@ -78,7 +78,7 @@
                 </li>
                 </form>
                 <?php
-                if ($status==6) 
+                if ($status==6||$status==5) 
                 {
                   ?>
                     <li class="list-group-item">

@@ -10,8 +10,9 @@ if(!isset($_SESSION['username']))
        $jadwal_hari = $_POST['jadwal_hari'];
        $jadwal_shift = $_POST['jadwal_shift'];
        $kelompok = $_POST['kelompok'];
+       $kuota = $_POST['kuota'];
 
-       $simpan = mysql_query("INSERT INTO `jadwal` (kelompok,jadwal_hari,jadwal_shift) VALUES ('$kelompok','$jadwal_hari','$jadwal_shift')");
+       $simpan = mysql_query("INSERT INTO `jadwal` (kelompok,jadwal_hari,jadwal_shift,kuota) VALUES ('$kelompok','$jadwal_hari','$jadwal_shift',$kuota)");
       if(!$simpan) 
       {
         $sql_message = "Jadwal gagal ditambahkan !!";
@@ -45,6 +46,7 @@ if(!isset($_SESSION['username']))
                     <td><b><center>Kelompok</center></b></td>
                     <td><b><center>Hari</center></b></td>
                     <td><b><center>Shift</center></b></td>
+                    <td><b><center>Kuota</center></b></td>
                     <td><b><center>Aksi</center></b></td>
                   </tr>
                     <?php
@@ -56,6 +58,7 @@ if(!isset($_SESSION['username']))
                         <td><center>".$hasil['kelompok']."</center></td>
                         <td><center>".$hasil['jadwal_hari']."</center></td>
                         <td><center>".$hasil['jadwal_shift']."</center></td>
+                        <td><center>".$hasil['kuota']."</center></td>
                         ";
                        if ($status==6)  
                        {
@@ -67,7 +70,7 @@ if(!isset($_SESSION['username']))
 		                      </tr>
 		                    ";
                        }  
-                       elseif ($status==2||$status==5) 
+                       elseif ($status==2||$status==3) 
                        {
                          echo "
                             <form action='jadwalPilih.php' method='post'>
@@ -123,6 +126,10 @@ if(!isset($_SESSION['username']))
 			                        <option value="16.00 - 18.00">16.00 - 18.00</option>
 			                    </select>
 			                  </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Kuota</label>
+                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Kuota" name="kuota">
+                        </div>
 			                  <center>
 			                    <button type="reset" class='btn btn-danger' style='width:15%' id="reset" name="reset" value="Batal">Batal</button>
 			                    <button type="submit" class='btn btn-primary' style='width:15%' id="tambah" name="tambah" value="tambah">Tambah</button>

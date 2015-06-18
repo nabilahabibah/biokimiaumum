@@ -15,7 +15,7 @@ if(isset($_POST['masuk']))
     $role = $hasil['role_id'];
   if($jumlah == 0) 
   {
-    header('location:index.php');
+    $sql_message = "Username yang Anda inputkan tidak terdaftar !!";
   }
   else
   {

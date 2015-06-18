@@ -39,20 +39,20 @@ else
           switch ($status) {
           case '2':
           echo "
-          <li><a href='jadwal.php'>Jadwal</a></li>
-          <li><a href='kelompok.php'>Kelompok</a></li>";
+          <li><a href='jadwal.php'>Jadwal</a></li>";
           break;
 
           case '3':
           echo "
-          <li><a href='jadwal.php'>Kelompok</a></li>";
-          // <li><a href='kelompok.php'>Kelompok</a></li>"
+          <li><a href='jadwal.php'>Jadwal</a></li>";
           break;
 
           case '5':
+          // <li><a href='jadwal.php'>Kelompok</a></li>
           echo "
-          <li><a href='jadwal.php'>Kelompok</a></li>
-          <li><a href='nilai.php'>Nilai</a></li>";
+          <li><a href='nilai.php'>Nilai</a></li>
+          <li><a href='asisten.php'>Asisten</a></li>
+          <li><a href='absen.php'>Absen</a></li>";
           break;
 
           case '6':
@@ -60,6 +60,7 @@ else
           <li><a href='jadwal.php'>Kelompok</a></li>
           <li><a href='nilai.php'>Nilai</a></li>
           <li><a href='asisten.php'>Asisten</a></li>
+          <li><a href='absen.php'>Absen</a></li>
           <li><a href='praktikan.php'>Praktikan</a></li>";
           break;
 
