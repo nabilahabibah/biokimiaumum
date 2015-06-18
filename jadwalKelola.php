@@ -7,13 +7,12 @@ if(!isset($_SESSION['username']))
   include "koneksi.php";
     if(isset($_POST['tambah']))
     {
-       $matkul = $_POST['matkul'];
        $jadwal_hari = $_POST['jadwal_hari'];
        $jadwal_shift = $_POST['jadwal_shift'];
        $kelompok = $_POST['kelompok'];
        $kuota = $_POST['kuota'];
 
-       $simpan = mysql_query("INSERT INTO `jadwal` (kelompok,matkul,jadwal_hari,jadwal_shift,kuota) VALUES ('$kelompok','$matkul','$jadwal_hari','$jadwal_shift',$kuota)");
+       $simpan = mysql_query("INSERT INTO `jadwal` (kelompok,jadwal_hari,jadwal_shift,kuota) VALUES ('$kelompok','$jadwal_hari','$jadwal_shift',$kuota)");
         if(!$simpan) 
         {
           $sql_message = "Jadwal gagal ditambahkan !!";
@@ -45,7 +44,6 @@ if(!isset($_SESSION['username']))
                 <table class="table">
                   <tr>
                     <td><b><center>Kelompok</center></b></td>
-                    <td><b><center>Matakuliah</center></b></td>
                     <td><b><center>Hari</center></b></td>
                     <td><b><center>Shift</center></b></td>
                     <td><b><center>Kuota</center></b></td>
@@ -58,7 +56,6 @@ if(!isset($_SESSION['username']))
                       echo "
                       <tr>
                         <td><center>".$hasil['kelompok']."</center></td>
-                        <td><center>".$hasil['matkul']."</center></td>
                         <td><center>".$hasil['jadwal_hari']."</center></td>
                         <td><center>".$hasil['jadwal_shift']."</center></td>
                         <td><center>".$hasil['kuota']."</center></td>
@@ -109,10 +106,6 @@ if(!isset($_SESSION['username']))
                         <div class="form-group">
                           <label for="exampleInputEmail1">Kelompok</label>
                           <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Kelompok" name="kelompok">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Matakuliah</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Matakuliah" name="matkul">
                         </div>
 			                  <div class="form-group">
 			                    <label for="exampleInputPassword1">Hari</label>

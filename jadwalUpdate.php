@@ -22,14 +22,12 @@ session_start();
           $jadwal_id = $_POST['jadwal_id'];
           $query = mysql_query("SELECT * FROM jadwal WHERE jadwal_id=$jadwal_id");
           $jadwal = mysql_fetch_assoc($query);
-          $kelompok = $jadwal['kelompok'];  
-          $matkul = $jadwal['matkul'];  
+          $kelompok = $jadwal['kelompok']; 
           $kuota = $jadwal['kuota'];  
         }   
         elseif (isset($_POST['update1'])) 
         {
           $kelompok = $_POST['kelompok']; 
-          $matkul = $_POST['matkul']; 
           $jadwal_hari = $_POST['jadwal_hari']; 
           $jadwal_shift = $_POST['jadwal_shift']; 
           $kuota = $_POST['kuota']; 
@@ -40,7 +38,7 @@ session_start();
           } 
           else
           {
-            $update1 = mysql_query("UPDATE `jadwal` SET matkul ='$matkul',`jadwal_hari`='$jadwal_hari',`jadwal_shift`='$jadwal_shift', kuota=$kuota WHERE kelompok=$kelompok");
+            $update1 = mysql_query("UPDATE `jadwal` SET `jadwal_hari`='$jadwal_hari',`jadwal_shift`='$jadwal_shift', kuota=$kuota WHERE kelompok=$kelompok");
             if ($update1) {
               $sql_message ="Jadwal berhasil di update";
             }
@@ -66,10 +64,6 @@ session_start();
                         <div class="form-group">
                           <label for="exampleInputEmail1">Kelompok</label>
                           <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Kelompok" name="kelompok" value="<?php echo $kelompok;?>" readonly>
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Matakuliah</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Matakuliah" name="matkul" value="<?php echo $matkul;?>">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputPassword1">Hari</label>
