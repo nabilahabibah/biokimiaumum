@@ -23,22 +23,24 @@ session_start();
           $query = mysql_query("SELECT * FROM jadwal WHERE jadwal_id=$jadwal_id");
           $jadwal = mysql_fetch_assoc($query);
           $kelompok = $jadwal['kelompok'];  
+          $matkul = $jadwal['matkul'];  
           $kuota = $jadwal['kuota'];  
         }   
         elseif (isset($_POST['update1'])) 
         {
           $kelompok = $_POST['kelompok']; 
+          $matkul = $_POST['matkul']; 
           $jadwal_hari = $_POST['jadwal_hari']; 
           $jadwal_shift = $_POST['jadwal_shift']; 
           $kuota = $_POST['kuota']; 
-          $cek = mysql_query("SELECT * FROM jadwal WHERE jadwal_hari='$jadwal_hari' and jadwal_shift='$jadwal_shift'");
+          $cek = mysql_query("SELECT * FROM jadwal WHERE jadwal_hari='$jadwal_hari' and jadwal_shift='$jadwal_shift' and kelompok!=$kelompok");
           if(mysql_num_rows($cek) <> 0) 
           {
             $sql_message = "Jadwal dengan hari dan shift tersebut telah terdapat jadwal lain !!";
           } 
           else
           {
-            $update1 = mysql_query("UPDATE `jadwal` SET `jadwal_hari`='$jadwal_hari',`jadwal_shift`='$jadwal_shift', kuota=$kuota WHERE kelompok=$kelompok");
+            $update1 = mysql_query("UPDATE `jadwal` SET matkul ='$matkul',`jadwal_hari`='$jadwal_hari',`jadwal_shift`='$jadwal_shift', kuota=$kuota WHERE kelompok=$kelompok");
             if ($update1) {
               $sql_message ="Jadwal berhasil di update";
             }
@@ -64,6 +66,10 @@ session_start();
                         <div class="form-group">
                           <label for="exampleInputEmail1">Kelompok</label>
                           <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Kelompok" name="kelompok" value="<?php echo $kelompok;?>" readonly>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Matakuliah</label>
+                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Matakuliah" name="matkul" value="<?php echo $matkul;?>">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputPassword1">Hari</label>

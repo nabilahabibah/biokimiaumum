@@ -53,7 +53,7 @@
                         if ($berita_file<>null) {
                         echo "
                         <div class='col-md-8'>
-                        <a href='dokumen/".$berita_file."'>Download ".$berita_file."</a>
+                        <a href='file/".$berita_file."'>Download ".$berita_file."</a>
                         </div>
                         ";
                         }

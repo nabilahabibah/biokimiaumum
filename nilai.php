@@ -60,7 +60,7 @@ session_start();
                 ?>
                 </table>
                 <?php
-                if ($status==6) {
+                if ($status==6 or $status==7) {
                   echo "
                         <form action='print.php' method='post'>
                           <center><button type='submit' class='btn btn-primary' style='width:10%' id='print' name='print' value='print'>Cetak</button></center>
