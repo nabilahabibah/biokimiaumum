@@ -94,7 +94,7 @@ session_start();
                     <input type="file" id="exampleInputFile" name="foto">  
                   </div> 
                   <center>
-                    <button type="reset" class='btn btn-danger' style='width:15%' id="reset" name="reset" value="Batal">Batal</button>
+                    <a href="beranda.php" class='btn btn-danger' style='width:15%' >Kembali</a>
                     <button type="submit" class='btn btn-primary' style='width:15%' id="update" name="update" value="update">Update</button>
                   </center>
                 </form>

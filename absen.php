@@ -25,12 +25,31 @@
             </div>
             <div class="panel-body">
               <div class="container-fluid">
+                <table class="table">
+                <tr>
+                  <td><b><center>Nomor Induk Mahasiswa</center></b></td>
+                  <td><b><center>Nama</center></b></td>
+                  <td><b><center>Kelompok</center></b></td> 
+                </tr>
+                <?php
+                $query1 = mysql_query("SELECT * FROM user JOIN jadwal_user ON user.username = jadwal_user.username JOIN jadwal ON jadwal_user.jadwal_id = jadwal.jadwal_id WHERE user.status_id=2 order by kelompok");
+                while($row = mysql_fetch_assoc($query1))
+                {
+                  echo "
+                  <tr>
+                    <td><center>".$row['username']."</center></td>
+                    <td><center>".$row['nama']."</center></td>  
+                    <td><center>".$row['kelompok']."</center></td>  
+                  </tr>";
+                }
+                ?>
+              </table>
                 <form action="absenTampil.php" method="post" enctype="multipart/form-data">
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Status Baru</label>
-                    <select type="text" class="form-control" id="exampleInputEmail1" placeholder="jadwal_id" name="jadwal_id">
+                    <label for="exampleInputPassword1">Cetak</label>
+                    <select type="text" class="form-control" id="exampleInputEmail1" placeholder="kelompok" name="jadwal_id">
                           <?php
-                          $query= mysql_query("select * from jadwal");
+                          $query= mysql_query("SELECT * FROM jadwal");
                             while($row = mysql_fetch_assoc($query))
                             {
                               echo "<option value=".$row["jadwal_id"].">".$row["kelompok"]."</option>";
@@ -40,7 +59,7 @@
                   </div>
                   <center>
                     <button type="submit" class='btn btn-primary' style='width:15%' id="tampil" name="tampil" value="tampil">
-                      Tampilkan</button>
+                      Cetak</button>
                   </center>
                 </form>
           </div>

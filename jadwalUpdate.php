@@ -89,7 +89,7 @@ session_start();
                           <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Kuota" name="kuota" value="<?php echo $kuota;?>">
                         </div>
                         <center>
-                          <button type="reset" class='btn btn-danger' style='width:15%' id="reset" name="reset" value="Batal">Batal</button>
+                          <a href="jadwal.php" class='btn btn-danger' style='width:15%' >Kembali</a>
                           <button type="submit" class='btn btn-primary' style='width:15%' id="update1" name="update1" value="update1">Update</button>
                         </center>
                     </form>

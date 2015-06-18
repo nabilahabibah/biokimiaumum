@@ -39,7 +39,7 @@
                   </tr>
                     <?php
                     if ($status==6) {
-                      $query = mysql_query("SELECT * FROM user JOIN STATUS ON user.status_id = status.status_id WHERE user.status_id =4 OR user.status_id =5");
+                      $query = mysql_query("SELECT * FROM user JOIN STATUS ON user.status_id = status.status_id WHERE user.status_id =4 OR user.status_id =5 or user.status_id=8");
                     }
                     elseif ($status==5) {
                       $query = mysql_query("SELECT * FROM user WHERE status_id =5");

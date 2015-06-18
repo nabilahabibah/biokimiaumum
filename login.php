@@ -30,7 +30,6 @@ if(isset($_POST['masuk']))
         if ($role==2||$status==8)
         {
           $sql_message = "Maaf, Anda tidak diizinkan untuk melakukan Login !!";
-          header('location:login.php');
         }
         else
         {
@@ -105,7 +104,7 @@ if(isset($_POST['masuk']))
               <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
             </div>                  
             <center>
-              <button type="reset" class='btn btn-danger' style='width:15%' id="reset" name="reset" value="Batal">Batal</button>
+              <a href="index.php" class='btn btn-danger' style='width:15%' >Kembali</a>
               <button type="submit" class='btn btn-primary' style='width:15%' id="masuk" name="masuk" value="masuk">Masuk</button>
             </center>
             </form>

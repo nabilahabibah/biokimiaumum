@@ -23,8 +23,16 @@ session_start();
          $cekuser = mysql_query("SELECT * FROM user WHERE username = '$username'");
           if(mysql_num_rows($cekuser) <> 0) 
           {
+            $ceknilai = mysql_query("SELECT * FROM user WHERE username = '$username'");
+            if(mysql_num_rows($ceknilai) <> 0)
+            {
+                $sql_message = "User dengan NIM ".$username." nilainya sudah diinputkan.!";
+            }
+            else
+            {              
             $nilai = mysql_query("INSERT INTO `nilai`(`username`, `nilai_Total`) VALUES ($username,$nilai_Total)");
-            $sql_message = "User dengan NIM ".$username." nilai telah diinputkan";
+            $sql_message = "User dengan NIM ".$username." nilai telah diinputkan"; 
+            }           
           }
           else
           {
@@ -56,7 +64,7 @@ session_start();
                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nilai Total Praktikum" name="nilai_Total">
                   </div>
                   <center>
-                    <button type="reset" class='btn btn-danger' style='width:15%' id="reset" name="reset" value="Batal">Batal</button>
+                    <a href="nilai.php" class='btn btn-danger' style='width:15%' >Kembali</a>
                     <button type="submit" class='btn btn-primary' style='width:15%' id="masuk" name="masuk" value="masuk">Input</button>
                   </center>
                 </form>

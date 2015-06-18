@@ -97,7 +97,7 @@ session_start();
                         </select>
                   </div>
                   <center>
-                    <a href="praktikan.php" class='btn btn-danger' style='width:15%' >Kembali</a>
+                    <a href="beranda.php" class='btn btn-danger' style='width:15%' >Kembali</a>
                     <button type="submit" class='btn btn-primary' style='width:15%' id="updateUser" name="updateUser" value="updateUser">update</button>
                   </center>
                 </form>

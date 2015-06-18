@@ -66,7 +66,7 @@ session_start();
                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nilai Total Praktikum" name="nilai_Total" value="<?php echo $nilai_Total?>">
                   </div> 
                   <center>
-                    <button type="reset" class='btn btn-danger' style='width:15%' id="reset" name="reset" value="Batal">Batal</button>
+                    <a href="nilai.php" class='btn btn-danger' style='width:15%' >Kembali</a>
                     <button type="submit" class='btn btn-primary' style='width:15%' id="updateNilai" name="updateNilai" value="updateNilai">Update</button>
                   </center>
                 </form>

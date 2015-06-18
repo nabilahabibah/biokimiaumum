@@ -25,15 +25,14 @@
           $cekuser = mysql_query("SELECT * FROM user WHERE username = '$username'");
           if(mysql_num_rows($cekuser) <> 0) 
           {
-            echo "Username Sudah Terdaftar!<br/>";
-            echo "<a href='asisten_daftar.php'>&amp;amp;laquo; Back</a>";
+            $sql_message = "Username sudah terdaftar.!!";
           } 
           else 
           {
             $simpan = mysql_query("INSERT INTO `user`(`username`, `password`, `nama`, `email`, `nomor_telepon`, `alamat`, `foto`, `status_id`, `role_id`) VALUES ('$username', '$password', '$nama', '$email', '$nomor_telepon', '$alamat', '$foto', '$status_id', '$role_id')");
             if(!$simpan) 
             {
-              echo "gagal";
+              $sql_message = "Pendaftaran gagal dilakukan..!!";
             }
             else
             {
@@ -89,9 +88,17 @@
                           <div class="panel-body">
                             <div class="container-fluid">
                               <form action="asisten_daftar.php" method="post" enctype="multipart/form-data">
+                                <?php
+                                  if(isset($sql_message))
+                                    {
+                                      echo "<center><label for='exampleInputPassword1'>";
+                                      echo $sql_message;
+                                      echo "</label></center>";
+                                    }
+                                  ?>
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">NIM</label>
-                                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="NIM" name="username">
+                                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="NIM" name="username" required>
                                 </div>                  
                                 <div class="form-group">
                                   <label for="exampleInputPassword1">Password</label>
@@ -99,11 +106,11 @@
                                 </div>
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">Nama</label>
-                                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nama" name="nama">
+                                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nama" name="nama" required>
                                 </div>
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">Email</label>
-                                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" name="email">
+                                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" name="email" required>
                                 </div>                  
                                 <div class="form-group">
                                   <label for="exampleInputPassword1">No.HP</label>
@@ -111,14 +118,14 @@
                                 </div>
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">Alamat</label>
-                                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Alamat" name="alamat">
+                                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Alamat" name="alamat" required>
                                 </div>
                                 <div class="form-group">
                                   <label for="exampleInputFile">Foto</label>
                                   <input type="file" id="exampleInputFile" name="foto">  
                                 </div> 
                                 <center>
-                                  <button type="reset" class='btn btn-danger' style='width:15%' id="reset" name="reset" value="Batal">Batal</button>
+                                  <a href="index.php" class='btn btn-danger' style='width:15%' >Kembali</a>
                                   <button type="submit" class='btn btn-primary' style='width:15%' id="daftar" name="daftar" value="Daftar">Daftar</button>
                                 </center>
                               </form>

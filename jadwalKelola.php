@@ -131,7 +131,7 @@ if(!isset($_SESSION['username']))
                           <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Kuota" name="kuota">
                         </div>
 			                  <center>
-			                    <button type="reset" class='btn btn-danger' style='width:15%' id="reset" name="reset" value="Batal">Batal</button>
+			                    <a href="beranda.php" class='btn btn-danger' style='width:15%' >Kembali</a>
 			                    <button type="submit" class='btn btn-primary' style='width:15%' id="tambah" name="tambah" value="tambah">Tambah</button>
 			                  </center>
 			              </form>
