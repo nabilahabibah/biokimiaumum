@@ -132,7 +132,7 @@
                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Alamat" name="alamat" required>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">Foto</label>
+                    <label for="exampleInputFile">Foto (JPG, PNG, JPEG)</label>
                     <input type="file" id="exampleInputFile" name="foto">  
                   </div> 
                   <center>

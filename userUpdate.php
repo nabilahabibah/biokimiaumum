@@ -32,21 +32,44 @@ session_start();
         {
           $usernameUpdate = $_POST['username'];
           $status_id = $_POST['status_id'];
-          $query = mysql_query("UPDATE user SET status_id=$status_id WHERE username=$usernameUpdate");
-          if(!$query) 
+          if ($status_id==2) 
           {
-            $sql_message = "Status user gagal di update !!";
-          }
-          else
-          {
-            if ($status_id==1||$status_id==2||$status_id==3) 
+            $nilai = mysql_query("INSERT INTO `nilai`(`username`) VALUES ($usernameUpdate)");
+            $query = mysql_query("UPDATE user SET status_id=$status_id WHERE username=$usernameUpdate");
+            if(!$query) 
             {
-              header('location:praktikan.php');
+              $sql_message = "Status user gagal di update !!";
             }
             else
             {
-              header('location:asisten.php');
-            }            
+              if ($status_id==1||$status_id==2||$status_id==3) 
+              {
+                header('location:praktikan.php');
+              }
+              else
+              {
+                header('location:asisten.php');
+              }            
+            }
+          }
+          else
+          {
+            $query = mysql_query("UPDATE user SET status_id=$status_id WHERE username=$usernameUpdate");
+            if(!$query) 
+            {
+              $sql_message = "Status user gagal di update !!";
+            }
+            else
+            {
+              if ($status_id==1||$status_id==2||$status_id==3) 
+              {
+                header('location:praktikan.php');
+              }
+              else
+              {
+                header('location:asisten.php');
+              }            
+            }
           }
         }
         
@@ -88,7 +111,7 @@ session_start();
                           $query= mysql_query("select * from status");
                             while($row = mysql_fetch_assoc($query))
                             {
-                              if (($row["status_id"])==6 ||($row["status_id"])==7 ){
+                              if (($row["status_id"])==3||($row["status_id"])==6 ||($row["status_id"])==7 ){
                                 continue;
                               }
                               echo "<option value=".$row["status_id"].">".$row["status_keterangan"]."</option>";

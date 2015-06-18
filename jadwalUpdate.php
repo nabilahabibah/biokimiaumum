@@ -34,7 +34,7 @@ session_start();
           $cek = mysql_query("SELECT * FROM jadwal WHERE jadwal_hari='$jadwal_hari' and jadwal_shift='$jadwal_shift'");
           if(mysql_num_rows($cek) <> 0) 
           {
-            $sql_message = "Jadwal dengan yang dipilih telah terdapat jadwal lain !!";
+            $sql_message = "Jadwal dengan hari dan shift tersebut telah terdapat jadwal lain !!";
           } 
           else
           {

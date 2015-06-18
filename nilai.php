@@ -66,10 +66,6 @@ session_start();
                           <center><button type='submit' class='btn btn-primary' style='width:10%' id='print' name='print' value='print'>Cetak</button></center>
                         </form>
                         <br>
-                        <form action='nilaiTambah.php' method='post'>
-                          <center><button type='submit' class='btn btn-warning' style='width:10%' id='input' name='input' value='input'>Input Nilai</button></center>
-                        </form>
-                        <br>
                         <form action='selesai.php' method='post'>
                           <center><button type='submit' class='btn btn-danger' style='width:15%' id='selesai' name='selesai' value='selesai'>Praktikum Berakhir</button></center>
                         </form>

@@ -26,7 +26,7 @@ else
 
           $foto = $_FILES['foto']['name']; //nama file
           $fileSize = $_FILES['foto']['size']; //ukuran file
-          if ((($_FILES["foto"]["type"] == "image/gif")||($_FILES["foto"]["type"] == "image/jpeg")||
+          if ((($_FILES["foto"]["type"] == "image/gif")||($_FILES["foto"]["type"] == "image/jpeg")||($_FILES["foto"]["type"] == "image/png")||
               ($_FILES["foto"]["type"] == "image/pjpeg")))
             {
               $fileError = $_FILES['foto']['error']; //
@@ -40,8 +40,7 @@ else
 
             $file = $_FILES['file']['name']; //nama file
             $fileSize = $_FILES['file']['size']; //ukuran file
-            if ((($_FILES["file"]["type"] == "image/gif")||($_FILES["file"]["type"] == "image/jpeg")||
-                ($_FILES["file"]["type"] == "image/pjpeg")))
+            if ((($_FILES["file"]["type"] == "application/pdf")))
               {
                 $fileError = $_FILES['file']['error']; //
                 $uploaddir='./file/';
@@ -121,11 +120,11 @@ else
                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Isi Berita" name="berita_isi">
                   </div> 
                   <div class="form-group">
-                    <label for="exampleInputFile">Foto Berita</label>
+                    <label for="exampleInputFile">Foto Berita (JPG, PNG, JPEG)</label>
                     <input type="file" id="exampleInputFile" name="foto">  
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">File Berita</label>
+                    <label for="exampleInputFile">File Berita (PDF)</label>
                     <input type="file" id="exampleInputFile" name="file">  
                   </div>
                   <center>

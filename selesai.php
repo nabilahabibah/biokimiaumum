@@ -15,7 +15,7 @@ else
           if ($jadwal_user) {
             $jadwal = mysql_query("DELETE FROM jadwal");
             if ($jadwal) {
-              $user = mysql_query("DELETE FROM user WHERE status_id=2");
+              $user = mysql_query("DELETE FROM user WHERE status_id=2 or status_id=8");
               if ($user) {
                 header("location:beranda.php");
               }

@@ -23,7 +23,7 @@ session_start();
          $cekuser = mysql_query("SELECT * FROM user WHERE username = '$username'");
           if(mysql_num_rows($cekuser) <> 0) 
           {
-            $ceknilai = mysql_query("SELECT * FROM user WHERE username = '$username'");
+            $ceknilai = mysql_query("SELECT * FROM nilai WHERE username = '$username'");
             if(mysql_num_rows($ceknilai) <> 0)
             {
                 $sql_message = "User dengan NIM ".$username." nilainya sudah diinputkan.!";

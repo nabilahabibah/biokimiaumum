@@ -41,11 +41,14 @@
                         <div class='panel-heading'><center><b>".$berita_judul."</b></center></div>
                         <div class='panel-body'>
                         <div class='col-md-4'><p align='left'>".$berita_tanggal."</p><center><img src='img/".$foto."' class='img-responsive' alt='Responsive image' style='width:70%;height:70%'></center></div>
+                         ";
+                        echo"
                         <div class='col-md-8'>
                         
                         <p align='justify'>".substr($berita_isi,0, 250)."...</p>
                         <a href='beritaDetail.php?berita_id=".$berita_id."' class='btn btn-danger' style='width:20%'>Read More</a>
                         </div>";
+                       
 
                         if ($berita_file<>null) {
                         echo "
@@ -53,6 +56,16 @@
                         <a href='dokumen/".$berita_file."'>Download ".$berita_file."</a>
                         </div>
                         ";
+                        }
+                        if ($status == 6) {
+                            echo "
+                            <div class='col-md-8'>
+                            <form action='beranda.php' method='post'>
+                                <input type='hidden' value='".$berita_id."' name=berita_id>
+                                <button type='submit' class='btn btn-primary' style='width:15%' id='hapus' name='hapus' value='hapus'>Hapus</button>
+                            </form>
+                            </div>
+                            ";
                         }
                         echo "
                         </div>

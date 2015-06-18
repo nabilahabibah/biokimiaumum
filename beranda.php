@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +19,15 @@ session_start();
         include "menu.php";
         include "sidebar.php";
         include "berita.php";
+        if(isset($_POST['hapus']))
+            {
+                $berita_id= $_POST['berita_id'];
+                $query = mysql_query("DELETE FROM `berita` WHERE berita_id=$berita_id");
+                
+                if ($query) {
+                    header("location:beranda.php");
+                }
+            }
         ?>
   </body>  
 </html>

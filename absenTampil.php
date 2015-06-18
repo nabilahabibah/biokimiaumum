@@ -53,19 +53,16 @@ $jadwal_shift = $kel['jadwal_shift'];
     </table><br><br>
     <table border="1">
     <center><tr>
-        <td rowspan="2"><center><B>NIM</B></center></td>
-        <td rowspan="2"><center><B>NAMA</B></center></td>
-        <td colspan="8"><center><B>MODUL</B></center></td>
+        <td rowspan="2" width="150px"><center><B>NIM</B></center></td>
+        <td rowspan="2" width="250px"><center><B>NAMA</B></center></td>
+        <td colspan="5"><center><B>MODUL</B></center></td>
       </tr>
       <tr>
-        <td width="50px" height="30px"></td>
-        <td width="50px"></td>
-        <td width="50px"></td>
-        <td width="50px"></td>
-        <td width="50px"></td>
-        <td width="50px"></td>
-        <td width="50px"></td>
-        <td width="50px"></td>
+        <td width="50px" height="30px"><center>1</center></td>
+        <td width="50px"><center>2</center></td>
+        <td width="50px"><center>3</center></td>
+        <td width="50px"><center>4</center></td>
+        <td width="50px"><center>5</center></td>
       </tr></center>
       <?php
           $query1 = mysql_query("SELECT * FROM user JOIN jadwal_user ON user.username = jadwal_user.username JOIN jadwal ON jadwal_user.jadwal_id = jadwal.jadwal_id WHERE jadwal.jadwal_id=$jadwal_id");
@@ -80,9 +77,7 @@ $jadwal_shift = $kel['jadwal_shift'];
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td></tr>
+              </tr>
               ";
           }
       ?>

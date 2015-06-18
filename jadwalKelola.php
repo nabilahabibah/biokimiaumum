@@ -13,15 +13,15 @@ if(!isset($_SESSION['username']))
        $kuota = $_POST['kuota'];
 
        $simpan = mysql_query("INSERT INTO `jadwal` (kelompok,jadwal_hari,jadwal_shift,kuota) VALUES ('$kelompok','$jadwal_hari','$jadwal_shift',$kuota)");
-      if(!$simpan) 
-      {
-        $sql_message = "Jadwal gagal ditambahkan !!";
-      }
-      else
-      {
-        header('location:jadwal.php');
+        if(!$simpan) 
+        {
+          $sql_message = "Jadwal gagal ditambahkan !!";
+        }
+        else
+        {
+          header('location:jadwal.php');
 
-      }
+        }
     }
 ?>
 <div class="row">
